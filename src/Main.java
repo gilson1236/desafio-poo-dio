@@ -1,9 +1,11 @@
+import java.time.LocalDate;
+
+import br.com.dio.desafio.dominio.Artigo;
 import br.com.dio.desafio.dominio.Bootcamp;
+import br.com.dio.desafio.dominio.Conteudo;
 import br.com.dio.desafio.dominio.Curso;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
-
-import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,10 +23,12 @@ public class Main {
         mentoria.setTitulo("mentoria de java");
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
-
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        
+        Conteudo artigo = new Artigo();
+        artigo.setTitulo("Vantagens de utilizar versões LTS do Java");
+        artigo.setDescricao("Descrição artigo sobre LTS");
+        ((Artigo)artigo).addReferencia("Referencia 1");
+        ((Artigo)artigo).addReferencia("Referencia 2");
 
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
@@ -58,6 +62,8 @@ public class Main {
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
 
+        System.out.println(((Artigo)artigo).getReferencias());
+        
     }
 
 }
